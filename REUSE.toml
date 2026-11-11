@@ -1,0 +1,27 @@
+version = 1
+SPDX-PackageName = "caddy-inflight-limit"
+SPDX-PackageSupplier = "Kai Ole Hartwig <mail@ole-hartwig.eu>"
+SPDX-PackageDownloadLocation = "https://github.com/ohartwig/caddy-inflight-limit"
+
+# Config, metadata and repo-template files: no comment syntax that survives
+# their tooling (go.sum, JSON), or copied verbatim from a template, where a
+# per-file header would drift.
+[[annotations]]
+path = [
+    ".gitattributes",
+    ".gitignore",
+    ".gitsigners",
+    ".gitsigners.d/**",
+    ".markdownlint.jsonc",
+    ".markdownlint-cli2.jsonc",
+    ".mise.toml",
+    "go.mod",
+    "go.sum",
+    "lefthook.yml",
+    "CHANGELOG.md",
+    "CLAUDE.md",
+    ".gitlab/**",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Kai Ole Hartwig <mail@ole-hartwig.eu>"
+SPDX-License-Identifier = "Apache-2.0"
