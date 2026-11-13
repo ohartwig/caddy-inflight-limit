@@ -1,3 +1,9 @@
+## [0.1.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.1.0...v0.1.1) (2026-11-13)
+
+### :repeat: Chores
+
+* **deps:** update module go.opentelemetry.io/otel/sdk to v1.47.0 [security] ([e59d151](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/commit/e59d1513295b8bac5dd3b1707f0fde59b0f94032))
+
 ## [0.1.0] (2026-11-12)
 
 ### :sparkles: Features
