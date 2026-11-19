@@ -1,0 +1,17 @@
+version = 1
+SPDX-PackageName = "caddy-inflight-limit"
+SPDX-PackageSupplier = "Kai Ole Hartwig <mail@ole-hartwig.eu>"
+SPDX-PackageDownloadLocation = "https://github.com/ohartwig/caddy-inflight-limit"
+
+# Files that cannot carry a comment header (go.sum, go.mod) or are generated.
+[[annotations]]
+path = [
+    ".gitattributes",
+    ".gitignore",
+    "go.mod",
+    "go.sum",
+    "CHANGELOG.md",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Kai Ole Hartwig <mail@ole-hartwig.eu>"
+SPDX-License-Identifier = "Apache-2.0"
