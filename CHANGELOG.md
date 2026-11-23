@@ -1,3 +1,9 @@
+## [0.1.4](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.1.3...v0.1.4) (2026-11-23)
+
+### :repeat: Chores
+
+* **deps:** update dependency registry.ole-hartwig.eu/devops/images/franken-php/ci to v3.2.365-8.5 ([7a1bd97](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/commit/7a1bd97963309018a8e2b1c60ccb00a2cf7347be))
+
 ## [0.1.3](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.1.2...v0.1.3) (2026-11-20)
 
 ### :repeat: Chores
