@@ -1,3 +1,13 @@
+## [0.2.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.1.4...v0.2.0) (2026-11-25)
+
+### :sparkles: Features
+
+* publish to GitHub through the mirror job ([cf50766](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/commit/cf50766db933eb27a96f720ceb2bd02cf46fc545))
+
+### :repeat: Continuous Integrations
+
+* **dependabot:** wait seven days before proposing a new release ([1c0f807](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/commit/1c0f8078a03d8d63bba8a3b889a413c378a3a941))
+
 ## [0.1.4](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.1.3...v0.1.4) (2026-11-23)
 
 ### :repeat: Chores
