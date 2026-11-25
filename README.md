@@ -10,6 +10,11 @@ client are **in flight at the same time**, and optionally how many of one
 host altogether. Built to sit between a cache and `reverse_proxy`, so that it
 counts only the requests that actually reach the application.
 
+## Status
+
+Version 0.x: the directive and its options may still change before 1.0. The
+module has been used in production behind a cache since November 2026.
+
 ## Why
 
 A typical PHP site behind Caddy: a cache (for example Souin) answers most
@@ -23,10 +28,7 @@ and misses alike. A crawler that sends a few hundred requests in a few
 seconds stays inside a window that ordinary visitors also need, and the
 misses among them — often a hundred or more for a crawler walking the long
 tail — arrive at the workers at once. They queue, and every other visitor
-whose request is a miss in those seconds waits behind them. Measured on one
-site: the time a miss spent queuing in front of the workers went from a few
-milliseconds to around 300 ms (median) and up to 750 ms (95th percentile)
-during such bursts.
+whose request is a miss in those seconds waits behind them.
 
 `inflight_limit` bounds what one client can have in flight. A burst then costs
 the crawler waiting and 429s, not other visitors' time. Cache hits are never
@@ -212,6 +214,31 @@ clients send.
 - **One instance, one count.** The counters are per Caddy process. Several
   instances behind a load balancer each allow the limit.
 
+## Measurements
+
+From production, not a benchmark: one TYPO3 site behind Caddy and Souin,
+two PHP workers per site, `per_client 2`, `wait 1s`, `max_per_host 8`,
+from 2026-11-12 for 13 days. Counts come from the module's
+Prometheus counters and its refusal log, latencies from Caddy's access log.
+Cache hits never reach the handler, so everything below is about misses.
+
+- **Most misses never wait.** About 49,000 misses reached the handler; about
+  1,700 of them (3.5 %) waited for a slot. They cluster: up to 400 on the
+  busiest day, single digits on quiet ones.
+- **Refusals are rare.** 48 requests in 13 days were refused: 43 with 429
+  (per client) and 5 with 503 (host cap). They came from four user agents:
+  a declared crawler, a five-year-old desktop browser string, and two
+  generic mobile browser strings.
+- **Latency of misses stayed level.** The daily p95 of cache misses at the
+  edge ranged from 0.34 s to 0.59 s without a trend; the daily p50 from
+  77 ms to 126 ms.
+
+What these numbers do not show is a speed-up. Other changes to the same site
+overlapped the pilot, so lower latencies in the period cannot be credited to
+the limiter. What it does is keep a burst from one client in front of that
+client: before it, a scraper's 112 misses in 8 seconds queued in front of the
+two workers, and every visitor waited behind them.
+
 ## Development
 
 ```sh
@@ -222,6 +249,10 @@ The tests cover the slot accounting (limit never exceeded under concurrency,
 arrival order, no overtaking, timeout, cancellation, cleanup), the masking,
 wait-then-429, the host cap, pass-through, reloads, Caddyfile parsing, and an
 integration test that runs Caddy from a Caddyfile on loopback.
+
+## Security
+
+See [SECURITY.md](SECURITY.md).
 
 ## Licence
 
