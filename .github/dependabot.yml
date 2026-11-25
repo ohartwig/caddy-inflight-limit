@@ -7,7 +7,15 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    # A new release waits a week before it is proposed: time for a
+    # compromised or broken version to be noticed and pulled.
+    cooldown:
+      default-days: 7
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
+    # A new release waits a week before it is proposed: time for a
+    # compromised or broken version to be noticed and pulled.
+    cooldown:
+      default-days: 7
