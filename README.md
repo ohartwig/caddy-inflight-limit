@@ -216,11 +216,28 @@ clients send.
 
 ## Measurements
 
-<!-- TODO: measured numbers are added before the first public release
-     (queuing time of cache misses with and without the limiter, test
-     setup, versions). Do not publish figures that are not reproducible. -->
+From production, not a benchmark: one TYPO3 site behind Caddy and Souin,
+two PHP workers per site, `per_client 2`, `wait 1s`, `max_per_host 8`,
+from 2026-11-12 for 13 days. Counts come from the module's
+Prometheus counters and its refusal log, latencies from Caddy's access log.
+Cache hits never reach the handler, so everything below is about misses.
 
-To be added.
+- **Most misses never wait.** About 49,000 misses reached the handler; about
+  1,700 of them (3.5 %) waited for a slot. They cluster: up to 400 on the
+  busiest day, single digits on quiet ones.
+- **Refusals are rare.** 48 requests in 13 days were refused: 43 with 429
+  (per client) and 5 with 503 (host cap). They came from four user agents:
+  a declared crawler, a five-year-old desktop browser string, and two
+  generic mobile browser strings.
+- **Latency of misses stayed level.** The daily p95 of cache misses at the
+  edge ranged from 0.34 s to 0.59 s without a trend; the daily p50 from
+  77 ms to 126 ms.
+
+What these numbers do not show is a speed-up. Other changes to the same site
+overlapped the pilot, so lower latencies in the period cannot be credited to
+the limiter. What it does is keep a burst from one client in front of that
+client: before it, a scraper's 112 misses in 8 seconds queued in front of the
+two workers, and every visitor waited behind them.
 
 ## Development
 
