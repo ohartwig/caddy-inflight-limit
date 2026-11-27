@@ -1,3 +1,9 @@
+## [0.2.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.2.0...v0.2.1) (2026-11-27)
+
+### :repeat: Chores
+
+* **repo-templates:** sync ([28d05fa](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/commit/28d05faa2e8c700a262c56cfffedc7be98ca01c9))
+
 ## [0.2.0](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.1.4...v0.2.0) (2026-11-25)
 
 ### :sparkles: Features
