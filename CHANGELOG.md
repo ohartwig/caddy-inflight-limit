@@ -1,3 +1,13 @@
+## [0.2.2](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.2.1...v0.2.2) (2026-11-28)
+
+### :bug: Fixes
+
+* release the v0.2.1 changes on GitHub ([ac6620a](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/commit/ac6620a498786e16d38e1f811e97b4107abb792b))
+
+### :repeat: Continuous Integrations
+
+* **mirror:** read the GitHub token from GITHUB_TOKEN ([fad9a44](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/commit/fad9a44b8ee2f56054bc107c8c5a98707b93c5ed))
+
 ## [0.2.1](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.2.0...v0.2.1) (2026-11-27)
 
 ### :repeat: Chores
