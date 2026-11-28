@@ -1,3 +1,9 @@
+## [0.2.3](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.2.2...v0.2.3) (2026-11-28)
+
+### :bug: Fixes
+
+* **reuse:** cover SECURITY.md in REUSE.toml ([b84d7ad](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/commit/b84d7ade418b4ee8ab6e53a735ee5be4deba0e28))
+
 ## [0.2.2](https://git.ole-hartwig.eu/ai-ready-platform/platform/caddy-inflight-limit/compare/v0.2.1...v0.2.2) (2026-11-28)
 
 ### :bug: Fixes
